@@ -5,18 +5,16 @@ def hash(s):
     return v
 
 lens_focus={}
-boxes={}
-for i in range(256):
-    boxes[i]=[]
+boxes={i:[] for i in range(256)}
 for step in open('input.txt', 'r').readline().split(','):
     if '=' in step:
-        label=step.split('=')[0]
+        label,focus=step.split('=')
         box=boxes[hash(label)]
         if not label in box:
             box.append(label)
-        lens_focus[label]=int(step.split('=')[1])
+        lens_focus[label]=int(focus)
     else:
-        label=step.split('-')[0]
+        label=step[:-1]
         box=boxes[hash(label)]
         if label in box:
             box.remove(label)
