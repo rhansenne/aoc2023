@@ -1,13 +1,13 @@
 from math import lcm
 modules=dict()
-flipflip=dict()
+flipflop=dict()
 conj=dict()
 
 for l in open('input.txt', 'r').readlines():
     sender=l[:l.index(' ')]
     if sender[0]=='%':
         sender=sender[1:]
-        flipflip[sender]=False #off
+        flipflop[sender]=False #off
     elif sender[0]=='&':
         sender=sender[1:]
         conj[sender]=dict()
@@ -30,12 +30,12 @@ for i in range(1,10000):
         if high:
             high_pulse_freq[sender].append(i)
         for receiver in modules[sender]:
-            if receiver in flipflip and not high:
-                if flipflip[receiver]:
-                    flipflip[receiver]=False
+            if receiver in flipflop and not high:
+                if flipflop[receiver]:
+                    flipflop[receiver]=False
                     queue.append((receiver,False))
                 else:
-                    flipflip[receiver]=True
+                    flipflop[receiver]=True
                     queue.append((receiver,True))
             elif receiver in conj:
                 conj[receiver][sender]=high
