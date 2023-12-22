@@ -55,7 +55,7 @@ for stp in range(steps):
         r.append(ap+(r[i-ln]-r[i-2*ln])+r[i-ln])
         r.pop(0)
 if found:        
-    print('Reached after',26501365,'steps:',r[-1])
+    print('Reached after',steps,'steps:',r[-1])
 else:
     print('No arithmetic progression identified - increase field expansion factor')
             
