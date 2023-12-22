@@ -57,4 +57,4 @@ def next(i,j,dir,samedir,heat):
                 next(i,j-1,Dir.W,1,heat)                  
                 
 next(0,0,Dir.E,0,-grid[0][0])
-print(minheat)
+print(minheat) 
